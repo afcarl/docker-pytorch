@@ -1,6 +1,7 @@
 #!/bin/bash
 rm -f /tmp/.X0-lock /tmp/.X11-unix/X0
 chown -R ${DUID:-1000}:${DGID:-1000} $HOME/.
+chmod 700 $HOME/.ssh
 chmod 700 $HOME/.vnc
 chmod 600 $HOME/.vnc/passwd
 chmod 755 $HOME/.vnc/xstartup

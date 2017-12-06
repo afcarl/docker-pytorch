@@ -28,4 +28,4 @@ dropbearkey  -t rsa -f $KEYRSA -s 2048
 chown root:root $KEYDSS $KEYRSA
 chmod 600 $KEYDSS $KEYRSA
 
-exec /usr/sbin/dropbear -j -k -s -E -F
+exec /usr/sbin/dropbear -s -E -F

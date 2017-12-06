@@ -29,11 +29,7 @@ RUN apt-get -y install sshfs
 RUN apt-get -y install curl wget
 RUN apt-get -y install libopenmpi-dev openmpi-bin
 RUN apt-get -y install vim-gtk
-
 RUN apt-get -y install dropbear-bin
-RUN mkdir -p /etc/ssh
-COPY start-dropbear.sh /usr/bin
-RUN chmod 755 /usr/bin/start-dropbear.sh
 
 RUN apt-get -y install locales
 RUN locale-gen en_US.UTF-8
@@ -82,3 +78,8 @@ RUN pip install ipython[all]
 
 ADD vimrc /root/.vimrc
 ENV HOME=/root
+
+RUN mkdir -p /etc/ssh
+COPY start-dropbear.sh /usr/local/bin
+RUN chmod 755 /usr/local/bin/start-dropbear.sh
+

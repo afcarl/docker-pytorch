@@ -1,0 +1,18 @@
+#!/bin/bash
+
+docker kill docker-pytorch 2>&1 || true
+docker rm docker-pytorch 2>&1 || true
+
+nvidia-docker run --name docker-pytorch \
+    -t -i \
+    --init \
+    -e "HOSTNAME=$(hostname)" \
+    -v /etc/ssh:/etc/ssh \
+    -v $(pwd):/work \
+    -p 5922:5900 \
+    -p 5022:22 \
+    -p 5888:8888 \
+    --restart always --cap-add SYS_ADMIN --device /dev/fuse \
+    --security-opt apparmor:unconfined \
+    docker-pytorch \
+    start-desktop.sh

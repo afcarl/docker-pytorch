@@ -2,8 +2,8 @@ TAG=gcr.io/tmbmicro
 
 image: pytorch2.7
 	docker build -t docker-pytorch-base ./docker-pytorch-base
-	-cp $(HOME)/.vnc/passwd docker-pytorch/homedir/.vnc/passwd
-	-cp $(HOME)/.ssh/authorized_keys docker-pytorch/homedir/.ssh/authorized_keys
+	-cp vnc-password docker-pytorch/homedir/.vnc/passwd
+	-cp ssh-authorized docker-pytorch/homedir/.ssh/authorized_keys
 	mkdir -p docker-pytorch/extras
 	touch docker-pytorch/extras-install && chmod 755 docker-pytorch/extras-install
 	-(cd docker-pytorch && test -f extras-fetch && ./extras-fetch)

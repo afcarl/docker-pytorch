@@ -15,6 +15,9 @@ RUN mkdir -p $HOME
 EXPOSE 8888
 EXPOSE 5900
 
+ADD start-desktop.sh /usr/local/bin
+ADD run.sh /usr/local/bin
+
 WORKDIR $HOME
 COPY homedir $HOME/
 COPY extras ./extras
