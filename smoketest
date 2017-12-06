@@ -1,0 +1,2 @@
+#!/bin/bash
+nvidia-docker run -v $(pwd):/work -w /work -t docker-pytorch python smoketest.py

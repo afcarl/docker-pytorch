@@ -1,0 +1,5 @@
+[begin] (Blackbox 0.61.x)
+ [exec] (rxvt) {rxvt}
+ [exec] (firefox) {firefox}
+ [exec] (jupyter) {rxvt -e jupyter notebook}
+[end]
