@@ -3,12 +3,10 @@ from IPython.lib import passwd
 import random
 
 c.NotebookApp.ip = '*'
-pw = "%06d" % random.randint(0, 999999)
-pw = os.environ.get('PASSWORD', pw)
-with open("JUPYTER-PASSWORD", "w") as stream:
-    stream.write(pw)
-print "Password: {}".format(pw)
-c.NotebookApp.password = passwd(pw)
+if "JUPYTER_PASSWORD" in os.environ:
+    pw = os.environ.get('JUPYTER_PASSWORD', pw)
+    print "Password: {}".format(pw)
+    c.NotebookApp.password = passwd(pw)
 
 #c.NotebookApp.ip = '127.0.0.1'
 #c.NotebookApp.password = ""
