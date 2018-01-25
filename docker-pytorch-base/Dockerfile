@@ -70,6 +70,13 @@ RUN pip install imread --upgrade
 
 RUN pip install ipython[all]
 
+#RUN curl https://sdk.cloud.google.com | bash
+#RUN bash -c '. $HOME/google-cloud-sdk/path.bash.inc && gcloud init'
+RUN echo "deb http://packages.cloud.google.com/apt cloud-sdk-$(lsb_release -c -s) main" >> /etc/apt/sources.list.d/google-cloud-sdk.list
+RUN curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key  add -
+RUN apt-get update -y
+RUN apt-get install -y google-cloud-sdk kubectl
+
 # RUN pip install scoop
 # RUN pip install ipyparallel
 # RUN pip install airflow --upgrade
