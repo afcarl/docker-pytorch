@@ -18,10 +18,10 @@ upload: image
 	gcloud docker -- push ${TAG}/docker-pytorch
 
 pytorch2.7:
-	docker build -t pytorch2.7 ./pytorch2.7
+	docker build -t pytorch2.7 ./docker-pytorch2.7
 
-rebuild-pytorch2.7:
-	docker build --no-cache -t pytorch2.7 ./pytorch2.7
+pytorch2.7-rebuild:
+	docker build --no-cache -t pytorch2.7 ./docker-pytorch2.7
 
 rebuild:
 	docker build --no-cache -t docker-pytorch-base ./docker-pytorch-base

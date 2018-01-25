@@ -1,2 +1,0 @@
-#!/bin/bash
-yes | gcloud container clusters delete tmbcluster
