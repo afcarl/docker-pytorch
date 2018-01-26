@@ -58,10 +58,10 @@ RUN pip install olefile
 RUN pip install editdistance
 RUN pip install bokeh
 
+# RUN pip install lz4
 RUN pip install dask
 RUN pip install dask[complete]
 RUN pip install distributed
-RUN pip install lz4
 
 RUN pip install scikit-learn
 RUN pip install scikit-image

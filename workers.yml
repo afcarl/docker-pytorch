@@ -1,0 +1,9 @@
+---
+- hosts: workers
+  become: yes
+  become_method: sudo
+  tasks:
+  - shell: docker-pull ceto docker-pytorch
+  - shell: daemon --stop -n dask-worker || true
+  - shell: sleep 1
+  - shell: daemon -n dask-worker -- nvidia-docker run --net=host docker-pytorch /usr/local/bin/dask-worker 192.168.4.6:8786

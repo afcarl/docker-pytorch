@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+  - shell: make
+  - shell: docker-push ceto docker-pytorch
+  - shell: daemon -n dask-scheduler --stop || true
+  - shell: daemon -n dask-scheduler -l /tmp/dask-scheduler.log -- dask-scheduler
